@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+body {
+  @apply items-center bg-[#ffded5] flex h-screen justify-center;
+}
+.phone {
+  @apply bg-white shadow-[0_0.9px_2.2px_rgba(0,0,0,0.039),0_2.2px_5.3px_rgba(0,0,0,0.048),0_4.1px_10px_rgba(0,0,0,0.052),0_7.4px_17.9px_rgba(0,0,0,0.057),0_13.8px_33.4px_rgba(0,0,0,0.067),0_33px_80px_rgba(0,0,0,0.11)] h-[400px] overflow-hidden relative w-[220px] rounded-[25px] border-[5px] border-solid border-[black];
+}
+.image {
+  @apply absolute;
+}
+.menu {
+  @apply items-center bg-[#303235] text-[#f2f2f2] flex flex-col text-[28px] h-full absolute w-full top-0;
+  clip-path: polygon(81.05% 9.1%, 92% 9.1%, 92% 10.1%, 81.05% 10.1%);
+  font-family: sans-serif;
+  transition: clip-path 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.active .menu {
+  @apply bg-[#102abe];
+  clip-path: polygon(101% -1%, 101% 101%, -1% 101%, -1% -1%);
+}
+.options {
+  @apply items-center flex flex-col transition-transform duration-[400ms] ease-in-out mt-[60px] scale-[0.8];
+}
+.option {
+  @apply cursor-pointer mx-0 my-2;
+}
+.option.selected {
+  @apply text-[#3245b3];
+}
+.active .options {
+  @apply scale-100;
+}
+.x {
+  @apply pointer-events-none absolute top-0;
+}
+.top-bars {
+  @apply stroke-[#303235] transition-[stroke] duration-[400ms] ease-in-out;
+}
+.active .top-bars {
+  @apply stroke-[#f2f2f2];
+}
+.bar {
+  @apply transition-transform duration-[400ms] ease-in-out;
+}
+.bar1 {
+  @apply origin-[190px_20.5px];
+}
+.bar2 {
+  @apply origin-[190px_28.5px];
+}
+.active .bar1 {
+  @apply translate-y-[8.6px] rotate-45;
+}
+.active .bar2 {
+  @apply -rotate-45;
+}
+.menu-click-area {
+  @apply cursor-pointer h-10 opacity-30 absolute w-10 right-2.5 top-2.5;
+}
